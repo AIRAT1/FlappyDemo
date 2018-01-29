@@ -34,4 +34,6 @@ public class FlappyDemo extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 	}
+
+
 }

@@ -1,6 +1,7 @@
 package de.android.ayrathairullin.states;
 
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
@@ -18,12 +19,14 @@ public class MenuState extends State{
 
     @Override
     protected void handleInput() {
-
+        if (Gdx.input.isTouched()) {
+            gsm.set(new PlayState(gsm));
+        }
     }
 
     @Override
     public void update(float dt) {
-
+        handleInput();
     }
 
     @Override
