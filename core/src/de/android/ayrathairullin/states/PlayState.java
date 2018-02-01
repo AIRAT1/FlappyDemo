@@ -14,7 +14,7 @@ import de.android.ayrathairullin.sprites.Tube;
 public class PlayState extends State {
     private static final int TUBE_SPACING = 125;
     private static final int TUBE_COUNT = 4;
-    public static final int GROUND_Y_OFFSET = - 30;
+    private static final int GROUND_Y_OFFSET = - 30;
 
     private Bird bird;
     private Texture bg;
@@ -75,7 +75,7 @@ public class PlayState extends State {
         sb.draw(bg, camera.position.x - (camera.viewportWidth / 2), 0);
         sb.draw(bird.getBird(), bird.getPosition().x, bird.getPosition().y);
         for (Tube tube : tubes) {
-            sb.draw(tube.getTopTube(), tube.getPosBotTube().x, tube.getPosTopTube().y);
+            sb.draw(tube.getTopTube(), tube.getPosTopTube().x, tube.getPosTopTube().y);
             sb.draw(tube.getBottomTube(), tube.getPosBotTube().x, tube.getPosBotTube().y);
         }
 

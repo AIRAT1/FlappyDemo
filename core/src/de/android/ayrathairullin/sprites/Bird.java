@@ -12,7 +12,7 @@ public class Bird {
     private static final int MOVEMENT = 100;
     private static final int GRAVITY = -15;
     private Vector3 position;
-    private Vector3 velosity;
+    private Vector3 velocity;
 
     private Rectangle bounds;
     private Texture texture;
@@ -21,7 +21,7 @@ public class Bird {
 
     public Bird(int x, int y){
         position = new Vector3(x, y, 0);
-        velosity = new Vector3(0, 0, 0);
+        velocity = new Vector3(0, 0, 0);
         texture = new Texture("birdanimation.png");
         birdAnimation = new Animation(new TextureRegion(texture), 3, 0.5f);
         bounds = new Rectangle(x, y, texture.getWidth() / 3, texture.getHeight());
@@ -39,18 +39,18 @@ public class Bird {
     public void update(float dt){
         birdAnimation.update(dt);
         if (position.y > 0)
-            velosity.add(0, GRAVITY, 0);
-        velosity.scl(dt);
-        position.add(MOVEMENT * dt, velosity.y, 0);
+            velocity.add(0, GRAVITY, 0);
+        velocity.scl(dt);
+        position.add(MOVEMENT * dt, velocity.y, 0);
         if (position.y < 0)
             position.y = 0;
 
-        velosity.scl(1 / dt);
+        velocity.scl(1 / dt);
 
         bounds.setPosition(position.x, position.y);
     }
     public void jump(){
-        velosity.y = 250;
+        velocity.y = 250;
         flap.play();
     }
 
